@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: 'area_codes#index', as: "area_code"
+  root to: 'countries#index', as: "countries"
 
-  get "/countries", to: 'countries#index', as: "countries"
+  get "/area_code", to: 'area_codes#index', as: "area_code"
+
 end

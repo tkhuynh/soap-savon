@@ -1,6 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+.navbar.navbar-default {
+  border-radius: 0px !important;
+  .navbar-brand {
+    padding: 0px;
+    img {
+      height: 40px;
+      margin: 5px 35px;
+    }
+  }
+}
 .custom-badge {
   display: inline-block;
   text-align: center;
