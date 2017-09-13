@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="card country-card">
+	  <div class="card-block text-center">
+	  	<img class="card-img-top" src="https://orbit.brightbox.com/v1/acc-jqzwj/Swift-Group/asset_management/assets/assets/000/000/370/std/location.gif?1472742534" alt="Country" class="img-responsive">
+	    <h2 class="card-title"><%= @result.info[:isd].first[:name] %></h2>
+	  </div>
+	  <ul class="list-group list-group-flush">
+	    <li class="list-group-item">
+	    	<strong>Country Code: </strong><%= params[:country_code].upcase %>
+	    </li>
+	    <li class="list-group-item">
+	    	<strong>Currency: </strong><%= params[:currency] || '&mdash;'.html_safe %>
+	    </li>
+	    <li class="list-group-item">
+	    	<strong>Currency Code: </strong><%= params[:currency_code] || '&mdash;'.html_safe %>
+	    </li>
+	    <li class="list-group-item">
+	    	<strong>International Dial Code: </strong><%= @result.info[:isd].first[:code] || '&mdash;'.html_safe %>
+	    </li>
+	    <% if @result.info[:gmt] %>
+		    <li class="list-group-item">
+		    	<strong>GMT: </strong><%= @result.info[:gmt].first[:gmt] %>
+		    </li>
+		  <% end %>
+		  <%= link_to "Back to Countries List", countries_path, class: 'list-group-item btn btn-default btn-sm' %>
+	  </ul>
+	</div>
+</div>

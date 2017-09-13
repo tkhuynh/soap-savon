@@ -12,6 +12,7 @@
 							<th class="text-center">Country Code</th>
 							<th>Currency</th>
 							<th class="text-center">Currency Code</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -21,6 +22,7 @@
 								<td class="text-center"><%= country[:country_code].upcase %></td>
 								<td><%= country[:currency] || '&mdash;'.html_safe %></td>
 								<td class="text-center"><%= country[:currency_code] || '&mdash;'.html_safe %></td>
+								<td><%= link_to "Learn More...", country_path({country: country[:name], country_code: country[:country_code], currency: country[:currency], currency_code: country[:currency_code]})%></td>
 							</tr>
 						<% end %>
 					</tbody>

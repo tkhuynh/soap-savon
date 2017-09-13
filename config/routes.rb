@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get "/area_code", to: 'area_codes#index', as: "area_code"
 
+  get "/country", to: 'countries#country', as: "country"
+
 end
