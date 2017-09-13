@@ -1,7 +1,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6">
+			<img src="http://icons.veryicon.com/png/Flag/Not%20a%20Patriot/USA%20Flag.png" alt="USA-Map" class="usa-flag">
 			<h1>US Area Code Lookup</h1>
+			<br>
 			<%= form_tag area_code_url, method: :get do %>
 		    <div class="input-group">
 		    	<%= text_field_tag :area_code, params[:area_code], class: 'form-control', placeholder: 'Enter Area Code' %>
@@ -15,7 +17,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<% if @info and @info.cities and @info.cities.count > 0 %>
-				<h4>Found <%= pluralize(@info.cities.count, 'city') %></h4>
+				<h4>Found <%= pluralize(@info.cities.count, 'city') %> with area code <%= params[:area_code] %></h4>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -38,6 +40,8 @@
 						<% end %>
 					</tbody>
 				</table>
+			<% else %>
+				<h4>Can't find any cities with area code <%= params[:area_code] %></h4>
 			<% end %>
 		</div>
 	</div>
