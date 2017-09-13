@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'area_codes/index'
+  root to: 'area_codes#index', as: "area_code"
 end

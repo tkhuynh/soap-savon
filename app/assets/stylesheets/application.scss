@@ -1,2 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.custom-badge {
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  background: darkblue;
+  color: white;
+  border-radius: 10px;
+}

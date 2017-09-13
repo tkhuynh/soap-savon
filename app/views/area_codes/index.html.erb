@@ -1,2 +1,44 @@
-<h1>AreaCodes#index</h1>
-<p>Find me in app/views/area_codes/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<h1>US Area Code Lookup</h1>
+			<%= form_tag area_code_url, method: :get do %>
+		    <div class="input-group">
+		    	<%= text_field_tag :area_code, params[:area_code], class: 'form-control', placeholder: 'Enter Area Code' %>
+		      <span class="input-group-btn">
+		      	<%= submit_tag "Lookup", name: nil, class: "btn btn-default" %>
+		      </span>
+		    </div>
+			<% end %>			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<% if @info and @info.cities and @info.cities.count > 0 %>
+				<h4>Found <%= pluralize(@info.cities.count, 'city') %></h4>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>City</td>
+							<td>Area Code</td>
+							<td>State</td>
+							<td>Zip Code</td>
+							<td>Time Zone</td>
+						</tr>
+					</thead>
+					<tbody>
+						<% @info.cities.each do |city| %>
+							<tr>
+								<td><%= city[:city] %></td>
+								<td><%= city[:area_code] %></td>
+								<td><%= city[:state] %></td>
+								<td><%= city[:zip] %></td>
+								<td><%= city[:time_zone] %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>
