@@ -40,7 +40,7 @@
 						<% end %>
 					</tbody>
 				</table>
-			<% else %>
+			<% elsif @info and @info.cities and @info.cities.count == 0 %>
 				<h4>Can't find any cities with area code <%= params[:area_code] %></h4>
 			<% end %>
 		</div>

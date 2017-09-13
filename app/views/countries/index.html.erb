@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3 class="text-center">
+				World's Countries
+			</h3>
+			<% if @result.countries %>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Country</th>
+							<th class="text-center">Country Code</th>
+							<th>Currency</th>
+							<th class="text-center">Currency Code</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @result.countries.each do |country| %>
+							<tr>
+								<td><%= country[:name] %></td>
+								<td class="text-center"><%= country[:country_code].upcase %></td>
+								<td><%= country[:currency] || '&mdash;'.html_safe %></td>
+								<td class="text-center"><%= country[:currency_code] || '&mdash;'.html_safe %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% elsif @result.error %>
+				<h4 class="text-center"><%= @result.error %></h4>
+			<% end %>
+		</div>
+	</div>
+</div>
